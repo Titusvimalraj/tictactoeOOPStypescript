@@ -1,0 +1,14 @@
+table {
+    display: table;
+    border-collapse: separate;
+    border-spacing: 2px;
+    border-color: gray;
+    width: 50vw;
+    height: 50vw;
+}
+
+table,
+tr,
+td {
+    border: 1px solid black;
+}
