@@ -1,19 +1,53 @@
-table {
-    display: table;
-    border-collapse: separate;
-    border-spacing: 2px;
-    border-color: gray;
-    width: 25vh;
-    height: 25vh;
+* {
+    color: white;
 }
 
-table,
-tr,
-td {
-    border: 1px solid black;
+html {
+    height: 100%;
+}
+
+body {
+    min-height: 100%;
+    background: rgb(39, 20, 191);
+    background: -moz-linear-gradient(150deg, rgba(39, 20, 191, 1) 17%, rgba(253, 89, 29, 1) 51%, rgba(69, 252, 176, 1) 100%);
+    background: -webkit-linear-gradient(150deg, rgba(39, 20, 191, 1) 17%, rgba(253, 89, 29, 1) 51%, rgba(69, 252, 176, 1) 100%);
+    background: linear-gradient(150deg, rgba(39, 20, 191, 1) 17%, rgba(253, 89, 29, 1) 51%, rgba(69, 252, 176, 1) 100%);
+    filter: progid: DXImageTransform.Microsoft.gradient(startColorstr="#2714bf", endColorstr="#45fcb0", GradientType=1);
+}
+
+.container-fluid {
+    min-height: 100%;
+    height: 100%;
 }
 
 td {
     text-align: center;
     font-size: 2rem;
+}
+
+td {
+    width: 100px;
+    height: 100px;
+}
+
+table {
+    margin: 5px auto;
+}
+
+.vert {
+    border-left: 2px solid white;
+    border-right: 2px solid white;
+}
+
+.hori {
+    border-top: 2px solid white;
+    border-bottom: 2px solid white;
+}
+
+button {
+    width: max-content;
+}
+
+#rest-button {
+    visibility: hidden;
 }

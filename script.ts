@@ -16,31 +16,36 @@ const board: markerType[][] = [
 
 let gameOn: boolean = true;
 
-let player1: string;
+let player1: string= "Player 1";
 let player1Marker: string;
 let player2: string;
-let player2Marker: string;
+let player2Marker: string= "Player 2";
 let playerMarker: markerType = "O";
 function updateMarkerListener(ele: string): string {
   // console.log("ele playerMarker");
   // console.log(ele, playerMarker);
-  document.getElementById(ele).innerHTML = playerMarker;
+  document.getElementById(ele).innerHTML = `<p>${playerMarker}</p>`;
   board[ele[0]][ele[1]] = playerMarker;  
   let old_element = document.getElementById("board");
   let new_element = old_element.cloneNode(true);
   old_element.parentNode.replaceChild(new_element, old_element);
   let game = new Game();
-  if (game.checkDraw(board)) {
-    console.log(`Draw!`);
-    document.getElementById("tic-player-turn").innerHTML = "Draw!";
-    return;
-  }
+  
   if (game.checkWin(board, playerMarker)) {
     
     console.log(`${playerMarker == "O" ? player1 : player2} wins!`);
-    document.getElementById("tic-player-turn").innerHTML = `${playerMarker == "O" ? player1 : player2} wins!`;
+    document.getElementById("tic-player-turn").innerHTML = `${playerMarker == "O" ? player1 : player2} wins!`;  
+    document.getElementById('rest-button').style.visibility="visible";
     return;
   }
+
+  if (game.checkDraw(board)) {
+    console.log(`Draw!`);
+    document.getElementById("tic-player-turn").innerHTML = "Draw!";
+    document.getElementById('rest-button').style.visibility="visible";
+    return;
+  }
+  
   let nextMark: markerType = playerMarker == "O" ? "X" : "O";
   // console.log("nextMark", nextMark);
   playerMarker = nextMark;

@@ -13,29 +13,38 @@
 </head>
 
 <body>
-    <div class="container-fluid">
-        <h1 class="text-center">Tic Tac Toe</h1>
-        <h2 id="tic-player-turn"></h2>
-        <div class="row d-flex justify-content-center">
-            <div class="col d-flex justify-content-center">
+    <div class="container-fluid d-flex flex-column justify-content-center">
+
+
+        <div class="row d-flex justify-content-center align-content-center">
+            <h1 class="text-center mb-4">Tic Tac Toe</h1>
+
+            <h2 class="text-center mb-4" id="tic-player-turn"></h2>
+
+            <div class="col d-flex justify-content-center mt-4 mb-4">
                 <table id="board">
                     <tr>
                         <td x=0 y=0 id="00"></td>
-                        <td x=0 y=1 id="01"></td>
+                        <td x=0 y=1 id="01" class="vert"></td>
                         <td x=0 y=2 id="02"></td>
                     </tr>
                     <tr>
-                        <td x=1 y=0 id="10"></td>
-                        <td x=1 y=1 id="11"></td>
-                        <td x=1 y=2 id="12"></td>
+                        <td x=1 y=0 id="10" class="hori"></td>
+                        <td x=1 y=1 id="11" class="vert hori"></td>
+                        <td x=1 y=2 id="12" class="hori"></td>
                     </tr>
                     <tr>
                         <td x=2 y=0 id="20"></td>
-                        <td x=2 y=1 id="21"></td>
+                        <td x=2 y=1 id="21" class="vert"></td>
                         <td x=2 y=2 id="22"></td>
                     </tr>
                 </table>
+
             </div>
+            <div class="text-center">
+                <button class="btn btn-primary btn-lg" id="rest-button" onclick="location.reload()">Restart</button>
+            </div>
+
         </div>
     </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.1/umd/popper.min.js"></script>

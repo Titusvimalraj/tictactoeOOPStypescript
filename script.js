@@ -17,28 +17,30 @@ var board = [
     ["", "", ""],
 ];
 var gameOn = true;
-var player1;
+var player1 = "Player 1";
 var player1Marker;
 var player2;
-var player2Marker;
+var player2Marker = "Player 2";
 var playerMarker = "O";
 function updateMarkerListener(ele) {
     // console.log("ele playerMarker");
     // console.log(ele, playerMarker);
-    document.getElementById(ele).innerHTML = playerMarker;
+    document.getElementById(ele).innerHTML = "<p>" + playerMarker + "</p>";
     board[ele[0]][ele[1]] = playerMarker;
     var old_element = document.getElementById("board");
     var new_element = old_element.cloneNode(true);
     old_element.parentNode.replaceChild(new_element, old_element);
     var game = new Game();
-    if (game.checkDraw(board)) {
-        console.log("Draw!");
-        document.getElementById("tic-player-turn").innerHTML = "Draw!";
-        return;
-    }
     if (game.checkWin(board, playerMarker)) {
         console.log((playerMarker == "O" ? player1 : player2) + " wins!");
         document.getElementById("tic-player-turn").innerHTML = (playerMarker == "O" ? player1 : player2) + " wins!";
+        document.getElementById('rest-button').style.visibility = "visible";
+        return;
+    }
+    if (game.checkDraw(board)) {
+        console.log("Draw!");
+        document.getElementById("tic-player-turn").innerHTML = "Draw!";
+        document.getElementById('rest-button').style.visibility = "visible";
         return;
     }
     var nextMark = playerMarker == "O" ? "X" : "O";
