@@ -3,12 +3,17 @@ table {
     border-collapse: separate;
     border-spacing: 2px;
     border-color: gray;
-    width: 50vw;
-    height: 50vw;
+    width: 25vh;
+    height: 25vh;
 }
 
 table,
 tr,
 td {
     border: 1px solid black;
+}
+
+td {
+    text-align: center;
+    font-size: 2rem;
 }
