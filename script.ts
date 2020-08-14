@@ -16,36 +16,37 @@ const board: markerType[][] = [
 
 let gameOn: boolean = true;
 
-let player1: string= "Player 1";
+let player1: string = "Player 1";
 let player1Marker: string;
 let player2: string;
-let player2Marker: string= "Player 2";
+let player2Marker: string = "Player 2";
 let playerMarker: markerType = "O";
 function updateMarkerListener(ele: string): string {
   // console.log("ele playerMarker");
   // console.log(ele, playerMarker);
   document.getElementById(ele).innerHTML = `<p>${playerMarker}</p>`;
-  board[ele[0]][ele[1]] = playerMarker;  
+  board[ele[0]][ele[1]] = playerMarker;
   let old_element = document.getElementById("board");
   let new_element = old_element.cloneNode(true);
   old_element.parentNode.replaceChild(new_element, old_element);
   let game = new Game();
-  
+
   if (game.checkWin(board, playerMarker)) {
-    
     console.log(`${playerMarker == "O" ? player1 : player2} wins!`);
-    document.getElementById("tic-player-turn").innerHTML = `${playerMarker == "O" ? player1 : player2} wins!`;  
-    document.getElementById('rest-button').style.visibility="visible";
+    document.getElementById("tic-player-turn").innerHTML = `${
+      playerMarker == "O" ? player1 : player2
+    } wins!`;
+    document.getElementById("rest-button").style.visibility = "visible";
     return;
   }
 
   if (game.checkDraw(board)) {
     console.log(`Draw!`);
     document.getElementById("tic-player-turn").innerHTML = "Draw!";
-    document.getElementById('rest-button').style.visibility="visible";
+    document.getElementById("rest-button").style.visibility = "visible";
     return;
   }
-  
+
   let nextMark: markerType = playerMarker == "O" ? "X" : "O";
   // console.log("nextMark", nextMark);
   playerMarker = nextMark;
@@ -65,10 +66,10 @@ function updateMarkerListener(ele: string): string {
 }
 
 let startGame = () => {
-  player1 = prompt("Player One: Enter Your Name , you will be O");
+  player1 = prompt("Player One: Enter Your Name , you will be O") || "Player 1";
   player1Marker = "O";
 
-  player2 = prompt("Player Two: Enter Your Name, you will be X");
+  player2 = prompt("Player Two: Enter Your Name, you will be X") || "Player 2";
   player2Marker = "X";
 
   let playerTurnMessage: string = `${

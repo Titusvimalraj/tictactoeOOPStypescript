@@ -34,13 +34,13 @@ function updateMarkerListener(ele) {
     if (game.checkWin(board, playerMarker)) {
         console.log((playerMarker == "O" ? player1 : player2) + " wins!");
         document.getElementById("tic-player-turn").innerHTML = (playerMarker == "O" ? player1 : player2) + " wins!";
-        document.getElementById('rest-button').style.visibility = "visible";
+        document.getElementById("rest-button").style.visibility = "visible";
         return;
     }
     if (game.checkDraw(board)) {
         console.log("Draw!");
         document.getElementById("tic-player-turn").innerHTML = "Draw!";
-        document.getElementById('rest-button').style.visibility = "visible";
+        document.getElementById("rest-button").style.visibility = "visible";
         return;
     }
     var nextMark = playerMarker == "O" ? "X" : "O";
@@ -56,9 +56,9 @@ function updateMarkerListener(ele) {
     return;
 }
 var startGame = function () {
-    player1 = prompt("Player One: Enter Your Name , you will be O");
+    player1 = prompt("Player One: Enter Your Name , you will be O") || "Player 1";
     player1Marker = "O";
-    player2 = prompt("Player Two: Enter Your Name, you will be X");
+    player2 = prompt("Player Two: Enter Your Name, you will be X") || "Player 2";
     player2Marker = "X";
     var playerTurnMessage = (playerMarker === "O" ? player1 : player2) + " your turn!";
     console.log("Player Marker", playerMarker);
